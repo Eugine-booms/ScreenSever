@@ -3,10 +3,101 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:HappyNewYearScreenSaver"
+        xmlns:l="clr-namespace:HappyNewYearScreenSaver"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Topmost="False"
+        WindowStyle="None"
+        Title="ScreenSever" 
+        WindowState="Maximized"
+        Height="450" Width="800">
+    <Window.Resources>
+        <CubicEase x:Key="CubicEase" EasingMode="EaseInOut"/>
+    </Window.Resources>
+    <Border>
+        <Border.Triggers>
+            <EventTrigger RoutedEvent="Loaded">
+                <BeginStoryboard>
+                    <Storyboard>
+                        <DoubleAnimation Storyboard.TargetProperty="(Control.Background).(RadialGradientBrush.GradientStops)[1].Offset"
+                                         To="{l:RND Min=0.2, Max=0.6}"
+                                         Duration="{l:TimeDuration {l:RND 10, 20}}"
+                                         AutoReverse="True"
+                                         RepeatBehavior="Forever"
+                                         EasingFunction="{StaticResource CubicEase}">
+                           
+                            
+                        </DoubleAnimation>
+                        <DoubleAnimation Storyboard.TargetProperty="(Control.Background).(RadialGradientBrush.RadiusX)"
+                                         To="0.3"
+                                         Duration="{l:TimeDuration {l:RND 5, 7}}"
+                                         AutoReverse="True"
+                                         RepeatBehavior="Forever"
+                                         EasingFunction="{StaticResource CubicEase}">
 
-    </Grid>
+
+                        </DoubleAnimation>
+                        <DoubleAnimation Storyboard.TargetProperty="(Control.Background).(RadialGradientBrush.RadiusY)"
+                                         To="0.5"
+                                          Duration="{l:TimeDuration {l:RND 5, 7}}"
+                                         AutoReverse="True"
+                                         RepeatBehavior="Forever"
+                                         EasingFunction="{StaticResource CubicEase}">
+
+
+                        </DoubleAnimation>
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+        </Border.Triggers>
+        <Border.Background>
+            <RadialGradientBrush>
+                <GradientStop Color="Blue"/>
+                <GradientStop Color="#000010" Offset="1"/>
+            </RadialGradientBrush>
+        </Border.Background>
+        <TextBlock Text="С новым годом!"
+                   FontFamily="Resourses/Fonts/#Teddy Bear"
+                   FontSize="150"
+                   HorizontalAlignment="Center" 
+                   VerticalAlignment="Center">
+            <TextBlock.Effect>
+                <DropShadowEffect ShadowDepth="0" Color="White"/>
+            </TextBlock.Effect>
+            <TextBlock.Foreground>
+                <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                    <LinearGradientBrush.Transform>
+                        <RotateTransform Angle="45"/>
+                    </LinearGradientBrush.Transform>
+                    <GradientStop Color="White" Offset="0"/>
+                    <GradientStop Color="Gray" Offset="-0.5"/>
+                    <GradientStop Color="Gray" Offset="1.5"/>
+                </LinearGradientBrush>
+            </TextBlock.Foreground>
+            <TextBlock.Triggers>
+                <EventTrigger RoutedEvent="Loaded">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation Storyboard.TargetProperty="(Control.Foreground).(LinearGradientBrush.GradientStops)[0].Offset" 
+                                             From="-0.5" To="1.5"
+                                             Duration="{l:TimeDuration {l:RND 2, 7}}"
+                                             RepeatBehavior="Forever"
+                                             AutoReverse="True"
+                                             EasingFunction="{StaticResource CubicEase}"
+                                             />
+                        </Storyboard>
+                    </BeginStoryboard>
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation Storyboard.TargetProperty="(Control.Effect).(DropShadowEffect.BlurRadius)" 
+                                             From="{l:RND 2, 5}" To="{l:RND Min=7, Max=10}"
+                                             Duration="{l:TimeDuration {l:RND 3, 8}}"
+                                             RepeatBehavior="Forever"
+                                             AutoReverse="True"
+                                             EasingFunction="{StaticResource CubicEase}"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </TextBlock.Triggers>
+        </TextBlock>
+    </Border>
 </Window>
