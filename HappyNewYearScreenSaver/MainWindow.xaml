@@ -3,11 +3,13 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:l="clr-namespace:HappyNewYearScreenSaver"
+        xmlns:l="clr-namespace:HappyNewYearScreenSaver" 
+        xmlns:con="clr-namespace:HappyNewYearScreenSaver.Infrastructure.Converters"
         mc:Ignorable="d"
         Topmost="True"
         WindowStyle="None"
         Title="ScreenSever" 
+        d:Height="450" d:Width="800"
         Height="450" Width="800">
     <Window.Resources>
         <CubicEase x:Key="CubicEase" EasingMode="EaseInOut"/>
@@ -54,11 +56,14 @@
                 <GradientStop Color="#000010" Offset="1"/>
             </RadialGradientBrush>
         </Border.Background>
-        <TextBlock Text="С новым годом!"
+        <TextBlock Text="С новым годом!" 
+                   Width="{Binding Width, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window}}"
+                   Height="{Binding Height, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window}, Converter={con:Ratio K=0.4}}"
                    FontFamily="Resourses/Fonts/#Teddy Bear"
-                   FontSize="150"
+                   FontSize="{Binding Height, RelativeSource={RelativeSource Mode=Self}, Converter={con:Ratio K=0.45}}"
+                   TextAlignment="Center"
                    HorizontalAlignment="Center" 
-                   VerticalAlignment="Center">
+                   VerticalAlignment="Center" TextWrapping="Wrap">
             <TextBlock.Effect>
                 <DropShadowEffect ShadowDepth="0" Color="White"/>
             </TextBlock.Effect>
