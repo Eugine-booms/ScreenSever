@@ -1,4 +1,5 @@
-﻿using HappyNewYearScreenSaver.API.pInvoke;
+﻿using HappyNewYearScreenSaver.API;
+using HappyNewYearScreenSaver.API.pInvoke;
 using System.Windows;
 using System.Windows.Interop;
 
@@ -73,7 +74,12 @@ public partial class App : Application
 
 	private static void CreateMainWindow(nint parentHandle)
 	{
-
+		foreach (var (left, top, wight, hight) in Screen.AllScreens.Select(s=>s.Bounds))
+		{
+			var windows = CreateWindow(parentHandle);
+			(windows.Left, windows.Top, windows.Width, windows.Height) = (left, top, wight, hight);
+			windows.Show();
+		}
 	}
 	private static Window CreateWindow(nint parentHandle)
 	{
