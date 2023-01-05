@@ -6,6 +6,7 @@
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
     <ImplicitUsings>enable</ImplicitUsings>
+    <ApplicationIcon>Resourses\img\christmas_tree.ico</ApplicationIcon>
   </PropertyGroup>
 
 	<ItemGroup>
@@ -16,6 +17,10 @@
     <None Remove="Resourses\Fonts\teddybear.ttf" />
     <None Remove="Resourses\img\christmas_tree.ico" />
   </ItemGroup>
+
+	<ItemGroup>
+	  <Content Include="Resourses\img\christmas_tree.ico" />
+	</ItemGroup>
 
   <ItemGroup>
     <Resource Include="Resourses\Fonts\teddybear.ttf">
