@@ -1,7 +1,7 @@
 ﻿using System.Drawing;
 using System.Runtime.CompilerServices;
 
-namespace HappyNewYearScreenSaver.API.pinvoke;
+namespace HappyNewYearScreenSaver.API.pInvoke;
 
 internal struct Rect
 {

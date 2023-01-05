@@ -1,6 +1,6 @@
 ﻿using System.Runtime.InteropServices;
 
-namespace HappyNewYearScreenSaver.API.pinvoke
+namespace HappyNewYearScreenSaver.API.pInvoke
 {
 	internal static class Gdi32
 	{

@@ -1,4 +1,5 @@
 ﻿
+using HappyNewYearScreenSaver.API.pInvoke;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using Point = System.Windows.Point;
 
-namespace HappyNewYearScreenSaver.API.pinvoke;
+namespace HappyNewYearScreenSaver.API.pInvoke;
 
 internal static class User32
 {
