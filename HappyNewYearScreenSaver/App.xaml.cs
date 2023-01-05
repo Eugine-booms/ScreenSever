@@ -1,4 +1,4 @@
-﻿using HappyNewYearScreenSaver.API.pinvoke;
+﻿using HappyNewYearScreenSaver.API.pInvoke;
 using System.Windows;
 using System.Windows.Interop;
 
@@ -58,6 +58,7 @@ public partial class App : Application
 					Shutdown();
 					return;
 				case Mode.FullScreen:
+					CreateMainWindow(parentHandle);
 					break;
 				case Mode.Preview:
 					CreateWindow(parentHandle).Show();
@@ -70,6 +71,10 @@ public partial class App : Application
 
 	}
 
+	private static void CreateMainWindow(nint parentHandle)
+	{
+
+	}
 	private static Window CreateWindow(nint parentHandle)
 	{
 		var window = new MainWindow();
