@@ -5,10 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:l="clr-namespace:HappyNewYearScreenSaver"
         mc:Ignorable="d"
-        Topmost="False"
+        Topmost="True"
         WindowStyle="None"
         Title="ScreenSever" 
-        WindowState="Maximized"
         Height="450" Width="800">
     <Window.Resources>
         <CubicEase x:Key="CubicEase" EasingMode="EaseInOut"/>
