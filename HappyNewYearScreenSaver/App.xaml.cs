@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using HappyNewYearScreenSaver.API.pinvoke;
+using System.Windows;
+using System.Windows.Interop;
 
 namespace HappyNewYearScreenSaver;
 
@@ -58,6 +60,7 @@ public partial class App : Application
 				case Mode.FullScreen:
 					break;
 				case Mode.Preview:
+					CreateWindow(parentHandle).Show();
 					break;
 				default:
 					break;
@@ -65,5 +68,33 @@ public partial class App : Application
 
 		}
 
+	}
+
+	private static Window CreateWindow(nint parentHandle)
+	{
+		var window = new MainWindow();
+		if (parentHandle == default)
+		{
+			window.Loaded += (s, _) => ((Window)s).WindowState = WindowState.Maximized;
+			window.MouseDown += (_, _) => Current.Shutdown();
+			return window;
+		}
+
+		User32.GetClientRect(parentHandle, out var parentRect);
+		var parent = new HwndSource(new("sourceParams")
+		{
+			PositionX = 0,
+			PositionY = 0,
+			Height = parentRect.Bottom - parentRect.Top,
+			Width = parentRect.Right - parentRect.Left,
+			ParentWindow = parentHandle,
+			WindowStyle = (int)(WindowStyles.WS_VISIBLE | WindowStyles.WS_CHILD | WindowStyles.WS_CLIPCHILDREN)
+		})
+		{
+			RootVisual = window.MainBorder
+		};
+
+		parent.Disposed	+=(_,_)=>window.Close();
+		return window;
 	}
 }
