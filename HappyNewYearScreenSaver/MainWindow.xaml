@@ -56,6 +56,7 @@
             </RadialGradientBrush>
         </Border.Background>
         <TextBlock Text="С новым годом!"
+                   FontFamily="Resourses/Fonts/#Teddy Bear"
                    FontSize="150"
                    HorizontalAlignment="Center" 
                    VerticalAlignment="Center">
