@@ -51,23 +51,21 @@ public partial class App : Application
 			else
 			if (arg.Equals("/s", StringComparison.OrdinalIgnoreCase))
 				mode = Mode.FullScreen;
-
-			switch (mode)
-			{
-				case Mode.Configuration:
-					MessageBox.Show("Конфигурация...");
-					Shutdown();
-					return;
-				case Mode.FullScreen:
-					CreateMainWindow(parentHandle);
-					break;
-				case Mode.Preview:
-					CreateWindow(parentHandle).Show();
-					break;
-				default:
-					break;
-			}
-
+		}
+		switch (mode)
+		{
+			case Mode.Configuration:
+				MessageBox.Show("Конфигурация...");
+				Shutdown();
+				return;
+			case Mode.FullScreen:
+				CreateMainWindow(parentHandle);
+				break;
+			case Mode.Preview:
+				CreateWindow(parentHandle).Show();
+				break;
+			default:
+				throw new ArgumentOutOfRangeException(nameof(mode));
 		}
 
 	}
