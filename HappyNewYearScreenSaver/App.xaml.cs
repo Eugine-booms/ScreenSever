@@ -37,8 +37,6 @@ public partial class App : Application
 					parentHandle = p_handle;
 
 			}
-			else
-
 			if (arg.StartsWith("/p", StringComparison.OrdinalIgnoreCase))
 			{
 				mode = Mode.Preview;
@@ -48,7 +46,6 @@ public partial class App : Application
 				else if (i + 1 < argsCount && nint.TryParse(args[i + 1], out var p_handle))
 					parentHandle = p_handle;
 			}
-			else
 			if (arg.Equals("/s", StringComparison.OrdinalIgnoreCase))
 				mode = Mode.FullScreen;
 		}
