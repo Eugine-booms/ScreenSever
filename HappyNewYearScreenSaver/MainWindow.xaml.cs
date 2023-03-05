@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using System.Reflection;
 using System.Windows;
 
 namespace HappyNewYearScreenSaver
@@ -17,7 +18,8 @@ namespace HappyNewYearScreenSaver
 
         public string GetDayName()
         {
-            var text = File.ReadAllLines(Environment.CurrentDirectory + "/Resourses/ical-favorite-out.ics");
+            string data = Properties.Resources._1;
+            var text = Properties.Resources._1.Split('\n');
             var date = DateTime.Now.ToString("yyyyMMdd");
             for (int i = 0; i < text.Length; i++)
             {
