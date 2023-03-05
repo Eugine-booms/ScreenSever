@@ -76,7 +76,7 @@ namespace HappyNewYearScreenSaver.Properties {
         ///RRULE:FREQ=YEARLY
         ///COMMENT:https://www.calend.ruhttps://www.calend.ru/holidays/0/0/293/
         ///DESCRIPTION:https://www.calend.ru/holidays/0/0/293/\nЯркий и вес
-        /// елый праздник — Новый г [остаток строки не уместился]&quot;;.
+        /// елый пра [остаток строки не уместился]&quot;;.
         /// </summary>
         public static string _1 {
             get {
