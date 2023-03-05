@@ -31,4 +31,10 @@
     </Resource>
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="Resourses\ical-favorite-out.ics">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

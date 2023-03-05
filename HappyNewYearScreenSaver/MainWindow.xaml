@@ -56,11 +56,11 @@
                 <GradientStop Color="#000010" Offset="1"/>
             </RadialGradientBrush>
         </Border.Background>
-        <TextBlock Text="С новым годом!" 
+        <TextBlock  Text="{Binding Text}"
                    Width="{Binding Width, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window}}"
                    Height="{Binding Height, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window}, Converter={con:Ratio K=0.4}}"
                    FontFamily="Resourses/Fonts/#Teddy Bear"
-                   FontSize="{Binding Height, RelativeSource={RelativeSource Mode=Self}, Converter={con:Ratio K=0.45}}"
+                   FontSize="{Binding Height, RelativeSource={RelativeSource Mode=Self}, Converter={con:Ratio K=0.30}}"
                    TextAlignment="Center"
                    HorizontalAlignment="Center" 
                    VerticalAlignment="Center" TextWrapping="Wrap">
